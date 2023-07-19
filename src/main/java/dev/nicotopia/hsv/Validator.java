@@ -29,7 +29,9 @@ public class Validator {
             System.in.read(buffer);
             pxY = OptionalInt.of(Integer.valueOf(new String(buffer).trim()));
         }
-        new Validator(pxX.getAsInt(), pxY.getAsInt()).printResult();
+        if (pxX.isPresent() && pxY.isPresent()) {
+            new Validator(pxX.getAsInt(), pxY.getAsInt()).printResult();
+        }
     }
 
     public static void writeImage(String path) throws IOException {
